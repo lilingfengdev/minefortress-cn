@@ -26,14 +26,14 @@ class BuildingScreenHandler(
     val tabs: List<BuildingScreenTab> by lazy {
         if (this.getProfessions().isEmpty()) {
             listOf(
-                BuildingScreenTab(Items.COBBLESTONE, 0, "Info", BuildingScreenTabType.INFO),
-//                BuildingScreenTab(Items.DIAMOND, 1, "Production Line", BuildingScreenTabType.PRODUCTION_LINE),
+                BuildingScreenTab(Items.COBBLESTONE, 0, "信息", BuildingScreenTabType.INFO),
+                // BuildingScreenTab(Items.DIAMOND, 1, "生产线", BuildingScreenTabType.PRODUCTION_LINE),
             )
         } else {
             listOf(
-                BuildingScreenTab(Items.COBBLESTONE, 0, "Info", BuildingScreenTabType.INFO),
-                BuildingScreenTab(Items.PLAYER_HEAD, 1, "Workforce", BuildingScreenTabType.WORKFORCE),
-//                BuildingScreenTab(Items.DIAMOND, 2, "Production Line", BuildingScreenTabType.PRODUCTION_LINE),
+                BuildingScreenTab(Items.COBBLESTONE, 0, "信息", BuildingScreenTabType.INFO),
+                BuildingScreenTab(Items.PLAYER_HEAD, 1, "劳动力", BuildingScreenTabType.WORKFORCE),
+                // BuildingScreenTab(Items.DIAMOND, 2, "生产线", BuildingScreenTabType.PRODUCTION_LINE),
             )
         }
     }

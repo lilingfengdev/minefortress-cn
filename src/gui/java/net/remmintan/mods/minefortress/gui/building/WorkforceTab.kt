@@ -31,7 +31,7 @@ class WorkforceTab(private val handler: IWorkforceTabHandler, private val textRe
         for ((profId, button) in hireButtons) {
             val canHireMore = handler.canHireMore(profId)
             button.active = canHireMore
-            button.tooltip = if (canHireMore) null else Tooltip.of(Text.of("Not enough resources or free colonists"))
+            button.tooltip = if (canHireMore) null else Tooltip.of(Text.of("资源不足或没有空闲的殖民者"))
         }
 
         for ((profId, button) in minusButtons) {
@@ -40,12 +40,12 @@ class WorkforceTab(private val handler: IWorkforceTabHandler, private val textRe
     }
 
     fun render(context: DrawContext, mouseX: Int, mouseY: Int) {
-        val recruitUnitsLabel = "Recruit Units"
+        val recruitUnitsLabel = "招募单位"
         context.drawText(this.textRenderer, recruitUnitsLabel, 7, 20, BuildingScreen.PRIMARY_COLOR, false)
         val labelWidth = this.textRenderer.getWidth(recruitUnitsLabel)
         context.drawText(
             this.textRenderer,
-            "[Available pawns: ${handler.getAvailablePawns()}]",
+            "[可用的棋子: ${handler.getAvailablePawns()}]",
             7 + labelWidth + 2,
             20,
             BuildingScreen.SECONDARY_COLOR,
@@ -55,7 +55,7 @@ class WorkforceTab(private val handler: IWorkforceTabHandler, private val textRe
         val (translatedMouseX, translatedMouseY) = context.matrices.translateMousePosition(mouseX, mouseY)
         drawables.forEach { it.render(context, translatedMouseX, translatedMouseY, 0f) }
 
-        context.drawText(this.textRenderer, "Enhance Skills", 7, 105, BuildingScreen.PRIMARY_COLOR, false)
+        context.drawText(this.textRenderer, "提升技能", 7, 105, BuildingScreen.PRIMARY_COLOR, false)
     }
 
     fun onMouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {

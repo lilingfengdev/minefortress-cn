@@ -49,7 +49,7 @@ public class ServerTaskManager implements IServerTaskManager, IWritableManager, 
 
         final var selectedWorkers = filterWorkers(selectedPawnIds, player);
         if (selectedWorkers.isEmpty()) {
-            player.sendMessage(Text.of("No appropriate workers selected. Put the task in the queue"), false);
+            player.sendMessage(Text.of("没有选择合适的工作者。请将任务放入队列中"), false);
             notStartedTasks.add(task);
             return;
         }

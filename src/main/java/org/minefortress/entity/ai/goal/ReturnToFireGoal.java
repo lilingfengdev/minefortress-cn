@@ -33,7 +33,7 @@ public class ReturnToFireGoal extends AbstractFortressGoal {
     public void start() {
         super.start();
         colonist.getMovementHelper().goTo(positionAroundCampfire, Colonist.SLOW_MOVEMENT_SPEED);
-        this.colonist.setCurrentTaskDesc("Staying near campfire");
+        this.colonist.setCurrentTaskDesc("在营火附近待着");
     }
 
     @Override

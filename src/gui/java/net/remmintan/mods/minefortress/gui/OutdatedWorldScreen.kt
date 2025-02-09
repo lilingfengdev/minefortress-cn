@@ -6,12 +6,12 @@ import net.minecraft.client.gui.widget.ButtonWidget
 import net.minecraft.text.Text
 
 private const val TEXT_STRING =
-    "Halt, traveler! Your world was shaped in the early days of MineFortress, an older age where some wonders may not serve you well. To experience its full glory, you must forge a new world. Be warned, the past holds no promises!"
+    "停下，旅行者！你的世界是在MineFortress的早期时代形成的，那是一个古老的时代，其中一些奇迹可能对你没有帮助。要体验它的全部辉煌，你必须铸造一个新世界。请注意，过去并没有承诺！"
 private val TEXT = Text.of(TEXT_STRING)
 
-class OutdatedWorldScreen : Screen(Text.of("This world is no longer supported!")) {
+class OutdatedWorldScreen : Screen(Text.of("这个世界不再受支持！")) {
 
-    private val btn: ButtonWidget = ButtonWidget.builder(Text.of("A shame, but so be it!")) {
+    private val btn: ButtonWidget = ButtonWidget.builder(Text.of("真可惜，但也没办法！")) {
         this.client?.setScreen(null)
     }
         .size(200, 20)

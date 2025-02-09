@@ -7,7 +7,7 @@ import net.remmintan.mods.minefortress.core.utils.CoreModUtils;
 import net.remmintan.mods.minefortress.gui.hud.HudState;
 import net.remmintan.mods.minefortress.gui.widget.ModeButtonWidget;
 
-public final class ModeHudLayer extends AbstractHudLayer{
+public final class ModeHudLayer extends AbstractHudLayer {
 
 
     ModeHudLayer(MinecraftClient client) {
@@ -24,7 +24,7 @@ public final class ModeHudLayer extends AbstractHudLayer{
                         0,
                         Items.STONE_PICKAXE,
                         (btn) -> fcm.setState(FortressState.AREAS_SELECTION),
-                        "Zones Selection Mode",
+                        "区域选择模式",
                         () -> fcm.getState() == FortressState.AREAS_SELECTION
                 ),
                 new ModeButtonWidget(
@@ -32,7 +32,7 @@ public final class ModeHudLayer extends AbstractHudLayer{
                         0,
                         Items.STONE_SWORD,
                         (btn) -> fcm.setState(FortressState.COMBAT),
-                        "Combat Mode",
+                        "战斗模式",
                         () -> fcm.getState() == FortressState.COMBAT
                 ),
                 new ModeButtonWidget(
@@ -40,7 +40,7 @@ public final class ModeHudLayer extends AbstractHudLayer{
                         0,
                         Items.STONE_SHOVEL,
                         (btn) -> fcm.setState(FortressState.BUILD_SELECTION),
-                        "Build Mode",
+                        "建造模式",
                         () -> fcm.getState() == FortressState.BUILD_EDITING || fcm.getState() == FortressState.BUILD_SELECTION
                 )
         );

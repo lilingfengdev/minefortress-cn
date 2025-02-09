@@ -29,12 +29,12 @@ class BuildingConfigurationScreen(
 
         val adder = grid.createAdder(2)
 
-        val professionsLabel = TextWidget(Text.of("Hires:"), this.textRenderer)
+        val professionsLabel = TextWidget(Text.of("雇佣类型："), this.textRenderer)
         professionSelector = CyclingButtonWidget
             .builder { it: ProfessionType -> Text.of(it.displayName) }
             .values(ProfessionType.entries)
             .initially(handler.getProfession())
-            .build(this.x + 2, this.y + 2, 200, 20, Text.of("Profession"))
+            .build(this.x + 2, this.y + 2, 200, 20, Text.of("职业"))
             { _, prof ->
 //                if (revision == 0) return@build
 //                val packet = C2SUpdateScreenProperty(1, prof.ordinal)
@@ -44,7 +44,7 @@ class BuildingConfigurationScreen(
         adder.add(professionSelector)
         professionSelector?.active = false
 
-        val capacityLabel = TextWidget(Text.of("Building capacity [0-100]:"), this.textRenderer)
+        val capacityLabel = TextWidget(Text.of("建筑容量 [0-100]："), this.textRenderer)
         capacityWidget = TextFieldWidget(this.textRenderer, 200, 20, Text.of(handler.getCapacity()))
         capacityWidget?.setChangedListener { text ->
             val capacity = if (text.isBlank()) 0 else text.toIntOrNull()
@@ -59,7 +59,7 @@ class BuildingConfigurationScreen(
         adder.add(capacityLabel, grid.copyPositioner().marginTop(9))
         adder.add(capacityWidget)
 
-        val btn = ButtonWidget.Builder(Text.of("Save the metadata")) { this.close() }
+        val btn = ButtonWidget.Builder(Text.of("保存元数据")) { this.close() }
             .size(150, 20)
             .position(this.width / 2 - 150 / 2, this.height - 100)
             .build()

@@ -16,7 +16,7 @@ public class AddBlueprintScreen extends Screen {
     private final BlueprintGroup group;
 
     public AddBlueprintScreen(BlueprintGroup group) {
-        super(Text.literal("Add new Blueprint"));
+        super(Text.literal("添加新蓝图"));
         this.group = group;
     }
 
@@ -27,21 +27,21 @@ public class AddBlueprintScreen extends Screen {
                 this.textRenderer,
                 this.width / 2 - 102,
                 this.height / 4 + 24 - 16, 204, 20,
-                Text.literal("Blueprint Name")
+                Text.literal("蓝图名称")
         );
         this.addDrawableChild(textField);
 
         final var saveBlueprintBtn = ButtonWidget
-            .builder(Text.literal("Save Blueprint"), button -> {
-                final var text = textField.getText();
-                if(Strings.isNotBlank(text)) {
-                    final var packet = ServerboundEditBlueprintPacket.add(text, group);
-                    FortressClientNetworkHelper.send(FortressChannelNames.FORTRESS_EDIT_BLUEPRINT, packet);
-                    if(this.client != null) this.client.setScreen(null);
-                }
-            })
-            .dimensions(this.width / 2 - 102, this.height / 4 + 48 - 16, 204, 20)
-            .build();
+                .builder(Text.literal("保存蓝图"), button -> {
+                    final var text = textField.getText();
+                    if(Strings.isNotBlank(text)) {
+                        final var packet = ServerboundEditBlueprintPacket.add(text, group);
+                        FortressClientNetworkHelper.send(FortressChannelNames.FORTRESS_EDIT_BLUEPRINT, packet);
+                        if(this.client != null) this.client.setScreen(null);
+                    }
+                })
+                .dimensions(this.width / 2 - 102, this.height / 4 + 48 - 16, 204, 20)
+                .build();
         this.addDrawableChild(saveBlueprintBtn);
     }
 

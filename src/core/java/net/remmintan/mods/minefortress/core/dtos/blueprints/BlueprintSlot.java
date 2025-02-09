@@ -35,12 +35,12 @@ public class BlueprintSlot {
         final var type = requirement.getType();
         if (type != null) {
             final var displayName = type.getDisplayName();
-            final var unlocksText = Text.literal("Unlocks: ").append(displayName).formatted(Formatting.GRAY);
+            final var unlocksText = Text.literal("解锁: ").append(displayName).formatted(Formatting.GRAY);
             tooltipText.add(unlocksText);
 
             final var level = requirement.getLevel();
             final var totalLevels = requirement.getTotalLevels();
-            final var levelText = Text.literal("Level: ")
+            final var levelText = Text.literal("等级: ")
                     .append(String.valueOf(level + 1))
                     .append("/")
                     .append(String.valueOf(totalLevels))
@@ -50,12 +50,11 @@ public class BlueprintSlot {
 
         final var villagersCapacity = this.metadata.getCapacity();
         if (villagersCapacity > 0) {
-            final var villagersText = Text.literal("Capacity: ")
+            final var villagersText = Text.literal("容量: ")
                     .append(String.valueOf(villagersCapacity))
                     .formatted(Formatting.GRAY);
             tooltipText.add(villagersText);
         }
-
 
         this.enoughResources = enoughResources;
         this.blockData = blockData;
@@ -79,13 +78,13 @@ public class BlueprintSlot {
         if (type != null) {
             final var level = requirement.getLevel();
             if (level > currentBuildingLevel + 1) {
-                final var unlockPreviousText = Text.literal("First, unlock previous level").formatted(Formatting.RED);
+                final var unlockPreviousText = Text.literal("首先，解锁前一个等级").formatted(Formatting.RED);
                 tooltip.add(unlockPreviousText);
                 return tooltip;
             }
 
             final var totalLevels = requirement.getTotalLevels();
-            final var levelText = Text.literal("Level: ")
+            final var levelText = Text.literal("等级: ")
                     .append(String.valueOf(level + 1))
                     .append("/")
                     .append(String.valueOf(totalLevels))
@@ -95,19 +94,19 @@ public class BlueprintSlot {
 
         final var villagersCapacity = this.metadata.getCapacity();
         if (villagersCapacity > 0) {
-            final var villagersText = Text.literal("Capacity: ")
+            final var villagersText = Text.literal("容量: ")
                     .append(String.valueOf(villagersCapacity - currentCapacity))
                     .formatted(Formatting.GRAY);
             tooltip.add(villagersText);
         }
 
-        final var hireSpeedText = Text.literal("Hire speed: ")
+        final var hireSpeedText = Text.literal("雇佣速度: ")
                 .append("x2")
                 .formatted(Formatting.GRAY);
         tooltip.add(hireSpeedText);
 
         if (!enoughResources) {
-            final var notEnoughResourcesText = Text.literal("Not enough resources").formatted(Formatting.RED);
+            final var notEnoughResourcesText = Text.literal("资源不足").formatted(Formatting.RED);
             tooltip.add(notEnoughResourcesText);
         }
 

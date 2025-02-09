@@ -157,7 +157,7 @@ public class ProfessionWidget {
         } else if(unlocked) {
             description = this.profession.getUnlockMoreMessage();
         } else if (!parentUnlocked) {
-            description = GuiUtils.splitTextInWordsForLength("You need to unlock the parent profession first!");
+            description = GuiUtils.splitTextInWordsForLength("您需要先解锁父职业！");
         } else {
             description = this.profession.getUnlockMessage();
         }

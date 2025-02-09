@@ -17,18 +17,18 @@ public abstract class AbstractMissingProfessionScreen extends Screen {
     }
 
     public AbstractMissingProfessionScreen(boolean irregularReson) {
-        super(Text.literal("Missing Profession"));
+        super(Text.literal("缺失职业"));
         this.irregularReson = irregularReson;
     }
 
     @Override
     protected void init() {
         final var backButton = ButtonWidget
-                .builder(Text.literal("Back"),
-                button -> {
-                    if (this.client != null)
-                        this.client.setScreen(null);
-                })
+                .builder(Text.literal("返回"),
+                        button -> {
+                            if (this.client != null)
+                                this.client.setScreen(null);
+                        })
                 .dimensions(this.width / 2 - 102,
                         this.height / 2 + 24 - 16,
                         204,
@@ -40,16 +40,16 @@ public abstract class AbstractMissingProfessionScreen extends Screen {
         if(!irregularReson) {
             final var toProfessionsMenuButton =
                     ButtonWidget
-                    .builder(Text.literal("To professions menu"),
-                    button -> {
-                        if (this.client != null)
-                            this.client.setScreen(new ProfessionsScreen(CoreModUtils.getManagersProvider()));
-                    })
-                    .dimensions(this.width / 2 - 102,
-                            this.height / 2 + 48 - 16,
-                            204,
-                            20)
-                    .build();
+                            .builder(Text.literal("前往职业菜单"),
+                                    button -> {
+                                        if (this.client != null)
+                                            this.client.setScreen(new ProfessionsScreen(CoreModUtils.getManagersProvider()));
+                                    })
+                            .dimensions(this.width / 2 - 102,
+                                    this.height / 2 + 48 - 16,
+                                    204,
+                                    20)
+                            .build();
             this.addDrawableChild(toProfessionsMenuButton);
         }
     }
@@ -57,12 +57,12 @@ public abstract class AbstractMissingProfessionScreen extends Screen {
     @Override
     public void render(DrawContext drawContext, int mouseX, int mouseY, float delta) {
         this.renderBackground(drawContext, mouseX, mouseY, delta);
-        final var missingText = String.format("You need at least one %s in your village", getMissingObjectName());
+        final var missingText = String.format("您在村庄中至少需要一个 %s", getMissingObjectName());
         drawContext.drawCenteredTextWithShadow(this.textRenderer, missingText, this.width / 2, this.height / 2 - 40, 0xFFFFFF);
         if(irregularReson) {
             drawContext.drawCenteredTextWithShadow(this.textRenderer, getActionText(), this.width / 2, this.height / 2 - 25, 0xFFFFFF);
         } else {
-            drawContext.drawCenteredTextWithShadow(this.textRenderer, "Go to professions menu and hire one", this.width / 2, this.height / 2 - 25, 0xFFFFFF);
+            drawContext.drawCenteredTextWithShadow(this.textRenderer, "前往职业菜单并雇佣一个", this.width / 2, this.height / 2 - 25, 0xFFFFFF);
         }
         super.render(drawContext, mouseX, mouseY, delta);
     }
@@ -71,6 +71,4 @@ public abstract class AbstractMissingProfessionScreen extends Screen {
     protected abstract String getMissingObjectName();
 
     protected abstract String getActionText();
-
-
 }

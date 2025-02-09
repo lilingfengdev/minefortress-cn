@@ -62,7 +62,7 @@ public class FortressFurnaceScreen extends AbstractFortressRecipeScreen<Fortress
             };
 
             final var btn = ButtonWidget
-                    .builder(Text.literal("Fur. " + addedFurnaces), action)
+                    .builder(Text.literal("熔炉 " + addedFurnaces), action)
                     .dimensions(
                             this.width - 5 - width,
                             5 + addedFurnaces * 25,
@@ -81,11 +81,12 @@ public class FortressFurnaceScreen extends AbstractFortressRecipeScreen<Fortress
 
             final var selectedLabel = furnace.isSelected() ? "*" : "";
             final var isBurning = furnace.getBurnTime() > 0;
-            final var burningLabel = isBurning ? (furnace.getCookProgress()+"%") : ("not burning");
+            final var burningLabel = isBurning ? (furnace.getCookProgress()+"%") : ("未燃烧");
 
-            btn.setMessage(Text.literal("Fur."+selectedLabel+": "+burningLabel));
+            btn.setMessage(Text.literal("熔炉."+selectedLabel+": "+burningLabel));
         }
     }
+
 
     @Override
     public void render(DrawContext drawContext, int mouseX, int mouseY, float delta) {

@@ -21,15 +21,15 @@ import java.nio.file.Path;
 
 public class ImportExportBlueprintsScreen extends Screen {
 
-    private static final Text DEFAULT_LABEL = Text.literal("Import/Export Blueprints");
-    private static final Text IMPORT_LABEL = Text.literal("Importing...");
-    private static final Text IMPORT_PROMPT_LABEL = Text.literal("Select blueprints to import");
-    private static final Text EXPORT_LABEL = Text.literal("Exporting...");
-    private static final Text EXPORT_PROMPT_LABEL = Text.literal("Enter file name:");
-    private static final Text IMPORT_SUCCESS = Text.literal("Imported successfully!");
-    private static final Text EXPORT_SUCCESS = Text.literal("Exported successfully!");
-    private static final Text IMPORT_FAILURE = Text.literal("Import failed!");
-    private static final Text EXPORT_FAILURE = Text.literal("Export failed!");
+    private static final Text DEFAULT_LABEL = Text.literal("导入/导出蓝图");
+    private static final Text IMPORT_LABEL = Text.literal("正在导入...");
+    private static final Text IMPORT_PROMPT_LABEL = Text.literal("选择要导入的蓝图");
+    private static final Text EXPORT_LABEL = Text.literal("正在导出...");
+    private static final Text EXPORT_PROMPT_LABEL = Text.literal("输入文件名：");
+    private static final Text IMPORT_SUCCESS = Text.literal("导入成功！");
+    private static final Text EXPORT_SUCCESS = Text.literal("导出成功！");
+    private static final Text IMPORT_FAILURE = Text.literal("导入失败！");
+    private static final Text EXPORT_FAILURE = Text.literal("导出失败！");
 
     private ScreenState state = ScreenState.DEFAULT;
 
@@ -50,7 +50,7 @@ public class ImportExportBlueprintsScreen extends Screen {
     private Text label = DEFAULT_LABEL;
 
     public ImportExportBlueprintsScreen() {
-        super(Text.literal("Import/Export Blueprints"));
+        super(Text.literal("导入/导出蓝图"));
     }
 
     @Override
@@ -84,55 +84,55 @@ public class ImportExportBlueprintsScreen extends Screen {
         importsList.setLeftPos(-1000);
 
         importConfirm = ButtonWidget
-            .builder(
-                Text.literal("Import"),
-                (button) -> {
-                    setState(ScreenState.IMPORTING);
-                    final var selected = importsList.getSelectedOrNull();
-                    if(selected != null){
-                        try {
-                            final var file = ModUtils.getBlueprintsFolder()
-                                    .resolve(selected.getValue());
+                .builder(
+                        Text.literal("导入"),
+                        (button) -> {
+                            setState(ScreenState.IMPORTING);
+                            final var selected = importsList.getSelectedOrNull();
+                            if(selected != null){
+                                try {
+                                    final var file = ModUtils.getBlueprintsFolder()
+                                            .resolve(selected.getValue());
 
-                            final var bytes = Files.readAllBytes(file);
-                            final var packet = new ServerboundBlueprintsImportExportPacket(bytes);
-                            FortressClientNetworkHelper.send(FortressChannelNames.FORTRESS_BLUEPRINTS_IMPORT_EXPORT, packet);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            setState(ScreenState.IMPORT_FAILURE);
+                                    final var bytes = Files.readAllBytes(file);
+                                    final var packet = new ServerboundBlueprintsImportExportPacket(bytes);
+                                    FortressClientNetworkHelper.send(FortressChannelNames.FORTRESS_BLUEPRINTS_IMPORT_EXPORT, packet);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    setState(ScreenState.IMPORT_FAILURE);
+                                }
+                            }
                         }
-                    }
-                }
-            )
-            .dimensions(x, y + listHeight,width, height)
-            .build();
+                )
+                .dimensions(x, y + listHeight,width, height)
+                .build();
         importConfirm.visible = false;
 
         importOpenFolder = ButtonWidget
-            .builder(
-                Text.literal("Open Folder"),
-                (button) -> openBlueprintsFolder()
-            )
-            .dimensions(x, y + listHeight + step,width/2 - 1, height)
-            .build();
+                .builder(
+                        Text.literal("打开文件夹"),
+                        (button) -> openBlueprintsFolder()
+                )
+                .dimensions(x, y + listHeight + step,width/2 - 1, height)
+                .build();
         importOpenFolder.visible = false;
 
         importRefresh = ButtonWidget
-            .builder(
-                Text.literal("Refresh list"),
-                (button) -> refreshImportsList()
-            )
-            .dimensions(x + width/2 + 2, y + listHeight + step,width/2 - 1, height)
-            .build();
+                .builder(
+                        Text.literal("刷新列表"),
+                        (button) -> refreshImportsList()
+                )
+                .dimensions(x + width/2 + 2, y + listHeight + step,width/2 - 1, height)
+                .build();
         importRefresh.visible = false;
 
         importCancel = ButtonWidget
-            .builder(
-                Text.literal("Cancel"),
-                (button) -> setState(ScreenState.DEFAULT)
-            )
-            .dimensions(x, y + listHeight + step * 2,width, height)
-            .build();
+                .builder(
+                        Text.literal("取消"),
+                        (button) -> setState(ScreenState.DEFAULT)
+                )
+                .dimensions(x, y + listHeight + step * 2,width, height)
+                .build();
         importCancel.visible = false;
 
         this.addDrawableChild(importsList);
@@ -167,29 +167,29 @@ public class ImportExportBlueprintsScreen extends Screen {
         exportName.visible = false;
 
         exportConfirm = ButtonWidget
-            .builder(
-                Text.literal("Export"),
-                (button) -> {
-                    setState(ScreenState.EXPORTING);
-                    final var text = exportName.getText();
+                .builder(
+                        Text.literal("导出"),
+                        (button) -> {
+                            setState(ScreenState.EXPORTING);
+                            final var text = exportName.getText();
 
-                    // add .zip if not present
-                    final var fileName = text.endsWith(MineFortressMod.BLUEPRINTS_EXTENSION) ? text : text + MineFortressMod.BLUEPRINTS_EXTENSION;
-                    final var packet = new ServerboundBlueprintsImportExportPacket(fileName);
-                    FortressClientNetworkHelper.send(FortressChannelNames.FORTRESS_BLUEPRINTS_IMPORT_EXPORT, packet);
-                }
-            )
-            .dimensions(x, y + step,width, height)
-            .build();
+                            // 如果没有后缀则添加 .zip
+                            final var fileName = text.endsWith(MineFortressMod.BLUEPRINTS_EXTENSION) ? text : text + MineFortressMod.BLUEPRINTS_EXTENSION;
+                            final var packet = new ServerboundBlueprintsImportExportPacket(fileName);
+                            FortressClientNetworkHelper.send(FortressChannelNames.FORTRESS_BLUEPRINTS_IMPORT_EXPORT, packet);
+                        }
+                )
+                .dimensions(x, y + step,width, height)
+                .build();
         exportConfirm.visible = false;
 
         exportCancel = ButtonWidget
-            .builder(
-                Text.literal("Cancel"),
-                (button) -> setState(ScreenState.DEFAULT)
-            )
-            .dimensions(x, y +(step *2),width, height)
-            .build();
+                .builder(
+                        Text.literal("取消"),
+                        (button) -> setState(ScreenState.DEFAULT)
+                )
+                .dimensions(x, y +(step *2),width, height)
+                .build();
         exportCancel.visible = false;
 
         this.addDrawableChild(exportName);
@@ -199,33 +199,34 @@ public class ImportExportBlueprintsScreen extends Screen {
 
     private void initDefaultButtons(int x, int y, int width, int height, int step) {
         backButton = ButtonWidget.builder(
-                Text.literal("Back"),
-                (button) -> MinecraftClient.getInstance().setScreen(new BlueprintsScreen())
-            )
-            .dimensions(x, y, width, height)
-            .build();
+                        Text.literal("返回"),
+                        (button) -> MinecraftClient.getInstance().setScreen(new BlueprintsScreen())
+                )
+                .dimensions(x, y, width, height)
+                .build();
 
         exportButton = ButtonWidget.builder(
-                Text.literal("Export blueprints"),
-                (button) -> setState(ScreenState.EXPORT_PROMPT)
-            )
-            .dimensions(x, y + step, width, height)
-            .build();
+                        Text.literal("导出蓝图"),
+                        (button) -> setState(ScreenState.EXPORT_PROMPT)
+                )
+                .dimensions(x, y + step, width, height)
+                .build();
 
         importButton = ButtonWidget.builder(
-                Text.literal("Import blueprints"),
-                (button) -> {
-                    setState(ScreenState.IMPORT_PROMPT);
-                    refreshImportsList();
-                }
-            )
-            .dimensions(x, y + (step * 2), width, height)
-            .build();
+                        Text.literal("导入蓝图"),
+                        (button) -> {
+                            setState(ScreenState.IMPORT_PROMPT);
+                            refreshImportsList();
+                        }
+                )
+                .dimensions(x, y + (step * 2), width, height)
+                .build();
 
         this.addDrawableChild(backButton);
         this.addDrawableChild(exportButton);
         this.addDrawableChild(importButton);
     }
+
 
     @Override
     public void tick() {

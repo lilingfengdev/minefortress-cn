@@ -37,16 +37,16 @@ public class TaskControl implements ITaskControl {
     private void updateCurrentTaskDesription() {
         if(task instanceof SimpleSelectionTask) {
             if(task.getTaskType() == TaskType.REMOVE) {
-                worker.setCurrentTaskDesc("Digging");
+                worker.setCurrentTaskDesc("挖掘");
             } else {
-                worker.setCurrentTaskDesc("Building");
+                worker.setCurrentTaskDesc("建造");
             }
         } else if(task instanceof BlueprintTask) {
-            worker.setCurrentTaskDesc("Building blueprint");
+            worker.setCurrentTaskDesc("绘制蓝图");
         } else if(task instanceof CutTreesTask) {
-            worker.setCurrentTaskDesc("Falling trees");
+            worker.setCurrentTaskDesc("砍伐树木");
         } else if(task instanceof RoadsTask) {
-            worker.setCurrentTaskDesc("Building roads");
+            worker.setCurrentTaskDesc("修建道路");
         }
     }
 

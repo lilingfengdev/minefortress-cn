@@ -23,7 +23,7 @@ public class BlueprintListEntry extends AlwaysSelectedEntryListWidget.Entry<Blue
 
     @Override
     public Text getNarration() {
-        return Text.literal("Blueprints: " + value);
+        return Text.literal("蓝图: " + value);
     }
 
     @Override

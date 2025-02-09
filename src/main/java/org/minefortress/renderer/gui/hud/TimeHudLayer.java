@@ -26,7 +26,7 @@ class TimeHudLayer extends AbstractHudLayer {
         timeOfDayTicks %= 1000L;
         final int timeMinutes = (int) Math.floor(timeOfDayTicks / 16.66667);
 
-        final String timeText = String.format("Day: %d | %02d:%02d", timeDays, timeHours, timeMinutes);
+        final String timeText = String.format("日期: %d | %02d:%02d", timeDays, timeHours, timeMinutes);
         drawContext.drawTextWithShadow(textRenderer, timeText, screenWidth - textRenderer.getWidth(timeText) - 5, screenHeight - 15, 0xFFFFFF);
     }
 

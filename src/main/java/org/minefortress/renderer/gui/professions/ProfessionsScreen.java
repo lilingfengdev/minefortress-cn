@@ -38,10 +38,10 @@ public class ProfessionsScreen extends Screen {
         final var matrices = RenderSystem.getModelViewStack();
         matrices.push();
         matrices.translate(0, 0, 200.0);
-        final String availableColonistsText = String.format("Available colonists: %d/%d", professionManager.getFreeColonists(), fortressManager.getTotalColonistsCount());
+        final String availableColonistsText = String.format("可用殖民者：%d/%d", professionManager.getFreeColonists(), fortressManager.getTotalColonistsCount());
         drawContext.drawTextWithShadow(textRenderer, availableColonistsText, screenX + 9, screenY + 18, 0xFFFFFF);
-        drawContext.drawTextWithShadow(textRenderer, "left click on profession - add pawn to profession", 2, this.height - (2*this.textRenderer.fontHeight) - 2, 0xffffff);
-        drawContext.drawTextWithShadow(textRenderer, "right click on profession - remove pawn from profession", 2, this.height -  this.textRenderer.fontHeight - 2, 0xffffff);
+        drawContext.drawTextWithShadow(textRenderer, "左键点击职业 - 将角色添加到职业", 2, this.height - (2*this.textRenderer.fontHeight) - 2, 0xffffff);
+        drawContext.drawTextWithShadow(textRenderer, "右键点击职业 - 从职业中移除角色", 2, this.height -  this.textRenderer.fontHeight - 2, 0xffffff);
         matrices.pop();
 
         this.drawWidgetTooltip(drawContext, mouseX, mouseY, screenX, screenY);

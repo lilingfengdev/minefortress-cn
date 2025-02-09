@@ -10,13 +10,13 @@ import net.remmintan.mods.minefortress.networking.c2s.ServerboundFinishEditBluep
 import net.remmintan.mods.minefortress.networking.helpers.FortressChannelNames;
 import net.remmintan.mods.minefortress.networking.helpers.FortressClientNetworkHelper;
 
-@Environment(value= EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class BlueprintsPauseScreen extends Screen {
 
     private final boolean showMenu;
 
     public BlueprintsPauseScreen(boolean showMenu) {
-        super(Text.of("Edit Blueprint"));
+        super(Text.of("编辑蓝图"));
         this.showMenu = showMenu;
     }
 
@@ -29,13 +29,13 @@ public class BlueprintsPauseScreen extends Screen {
 
     private void initWidgets() {
         final var backBtn = ButtonWidget
-                .builder(Text.literal("Back to game"), button -> closeMenu())
+                .builder(Text.literal("返回游戏"), button -> closeMenu())
                 .dimensions(this.width / 2 - 102, this.height / 4 + 24 - 16, 204, 20)
                 .build();
         this.addDrawableChild(backBtn);
 
         final var saveBtn = ButtonWidget
-                .builder(Text.literal("Save blueprint"), button -> {
+                .builder(Text.literal("保存蓝图"), button -> {
                     sendSave(true);
                     closeMenu();
                 })
@@ -44,7 +44,7 @@ public class BlueprintsPauseScreen extends Screen {
         this.addDrawableChild(saveBtn);
 
         final var clearBtn = ButtonWidget
-                .builder(Text.literal("Clear blueprint"), button -> {
+                .builder(Text.literal("清除蓝图"), button -> {
                     openClearConfirmationScreen();
                 })
                 .dimensions(this.width / 2 - 102, this.height / 4 + 72 - 16, 204, 20)
@@ -52,7 +52,7 @@ public class BlueprintsPauseScreen extends Screen {
         this.addDrawableChild(clearBtn);
 
         final var discardBtn = ButtonWidget
-                .builder(Text.literal("Discard Blueprint"), button -> {
+                .builder(Text.literal("放弃蓝图"), button -> {
                     sendSave(false);
                     closeMenu();
                 })
@@ -67,11 +67,12 @@ public class BlueprintsPauseScreen extends Screen {
     }
 
     private void openClearConfirmationScreen() {
-        if(this.client!=null)
+        if (this.client != null)
             this.client.setScreen(new ClearBlueprintConfirmationScreen(this));
         else
-            throw new RuntimeException("Client is null");
+            throw new RuntimeException("客户端为空");
     }
+
 
     private void closeMenu() {
         this.client.setScreen(null);

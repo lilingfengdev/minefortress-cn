@@ -30,7 +30,7 @@ public class WanderAroundTheFortressGoal extends AbstractFortressGoal {
 
     @Override
     public void start() {
-        colonist.setCurrentTaskDesc("Wandering around");
+        colonist.setCurrentTaskDesc("徘徊");
         colonist.putItemInHand(null);
         colonist.getMovementHelper().goTo(goal, Colonist.SLOW_MOVEMENT_SPEED);
         if(colonist.isSleeping()) {

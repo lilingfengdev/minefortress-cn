@@ -9,11 +9,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum BlueprintGroup {
-    WORKSHOPS(true, Items.IRON_AXE, "Workshops"),
-    LIVING_HOUSES(true, Items.OAK_PLANKS, "Living Houses"),
-    DECORATION(true, Items.ROSE_BUSH, "Decoration"),
-    FARMS(true, Items.WHEAT, "Farms", true),
-    SOCIAL_BUILDINGS(true, Items.BOOKSHELF, "Social Buildings", true),
+    WORKSHOPS(true, Items.IRON_AXE, "工作坊"),
+    LIVING_HOUSES(true, Items.OAK_PLANKS, "住宅"),
+    DECORATION(true, Items.ROSE_BUSH, "装饰"),
+    FARMS(true, Items.WHEAT, "农场", true),
+    SOCIAL_BUILDINGS(true, Items.BOOKSHELF, "社交建筑", true),
     HIDDEN(true, Items.AIR, "", true)
     ;
 

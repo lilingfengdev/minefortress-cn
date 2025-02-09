@@ -31,7 +31,7 @@ public class LumberjackDailyTask extends AbstractAutomationAreaTask {
 
     @Override
     protected String getTaskDesc() {
-        return "Harvesting trees";
+        return "收获树木";
     }
 
     @Override

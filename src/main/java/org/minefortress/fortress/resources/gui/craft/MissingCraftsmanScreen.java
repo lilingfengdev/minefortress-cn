@@ -7,11 +7,12 @@ public class MissingCraftsmanScreen extends AbstractMissingProfessionScreen {
 
     @Override
     protected @NotNull String getMissingObjectName() {
-        return "Craftsman";
+        return "工匠";
     }
 
     @Override
     protected String getActionText() {
-        return "Go to professions manager to hire one";
+        return "前往职业经理处雇佣一个";
     }
+
 }

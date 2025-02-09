@@ -42,7 +42,7 @@ public final class AreasClientManager implements ISelectionInfoProvider, ISelect
                 MinecraftClient.getInstance()
                         .inGameHud
                         .getChatHud()
-                        .addMessage(Text.literal("Please select an area type first!"));
+                        .addMessage(Text.literal("请先选择一个区域类型！"));
                 return false;
             }
             final var blockPos = bhr.getBlockPos();

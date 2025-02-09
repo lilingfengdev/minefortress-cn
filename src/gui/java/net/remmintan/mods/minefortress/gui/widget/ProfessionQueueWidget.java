@@ -25,10 +25,10 @@ public class ProfessionQueueWidget extends MinefortressWidget implements Drawabl
     public void render(DrawContext drawContext, int mouseX, int mouseY, float delta) {
         final var stack = Items.PLAYER_HEAD.getDefaultStack();
         drawContext.drawItem(stack, x, y);
-        drawContext.drawText(getTextRenderer(), String.valueOf(amountSupplier.get()), x+14, y+10, 0xFFFFFF, false);
+        drawContext.drawText(getTextRenderer(), String.valueOf(amountSupplier.get()), x + 14, y + 10, 0xFFFFFF, false);
 
         if (mouseX >= x && mouseX <= x + 16 && mouseY >= y && mouseY <= y + 16) {
-            final var tooltip = List.of("Recruitment Queue: Shows the", "number of units awaiting", "recruitment.").stream().map(Text::of).toList();
+            final var tooltip = List.of("招募队列：显示待招募的", "单位数量。").stream().map(Text::of).toList();
             drawContext.drawTooltip(getTextRenderer(), tooltip, mouseX, mouseY);
         }
     }

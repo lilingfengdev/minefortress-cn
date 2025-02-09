@@ -159,7 +159,7 @@ public class FarmerDailyTask extends AbstractAutomationAreaTask {
 
     @Override
     protected String getTaskDesc() {
-        return "Farming";
+        return "农业";
     }
 
     private Optional<BlockItem> getSeeds(Colonist colonist) {

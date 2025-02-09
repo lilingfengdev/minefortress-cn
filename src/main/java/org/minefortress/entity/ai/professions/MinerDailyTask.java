@@ -58,7 +58,7 @@ public class MinerDailyTask extends AbstractAutomationAreaTask{
 
     @Override
     protected String getTaskDesc() {
-        return "Mining";
+        return "矿业";
     }
 
     @Override

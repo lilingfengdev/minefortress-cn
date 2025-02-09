@@ -31,7 +31,7 @@ public class ToolsHudLayer extends AbstractHudLayer {
                     final ItemButtonWidget fortressBtn = (ItemButtonWidget) btn;
                     fortressBtn.checked = !fortressBtn.checked;
                 },
-                (button) -> button.checked ? Optional.empty() : Optional.of("Selection Type")
+                (button) -> button.checked ? Optional.empty() : Optional.of("选择类型")
         );
         this.addElement(selection);
 
@@ -47,7 +47,7 @@ public class ToolsHudLayer extends AbstractHudLayer {
                                 this.client.setScreen(new BlueprintsScreen());
                             }
                         },
-                        (button) -> Optional.of(blueprintSelected() ? "Cancel" : "Blueprints"),
+                        (button) -> Optional.of(blueprintSelected() ? "取消" : "蓝图"),
                         this::blueprintSelected,
                         () -> !treeCutterSelected() && !roadsSelected() && hudHasCorrectState(FortressState.BUILD_EDITING)
                 ),
@@ -62,7 +62,7 @@ public class ToolsHudLayer extends AbstractHudLayer {
                                 CoreModUtils.getSelectionManager().setSelectionType(SelectionType.TREE);
                             }
                         },
-                        (button) -> Optional.of(treeCutterSelected() ? "Cancel" : "Chop trees"),
+                        (button) -> Optional.of(treeCutterSelected() ? "取消" : "砍树"),
                         this::treeCutterSelected,
                         () -> !blueprintSelected() && !roadsSelected() && hudHasCorrectState(FortressState.BUILD_EDITING)
                 ),
@@ -77,7 +77,7 @@ public class ToolsHudLayer extends AbstractHudLayer {
                                 CoreModUtils.getSelectionManager().setSelectionType(SelectionType.ROADS);
                             }
                         },
-                        (button) -> Optional.of(roadsSelected() ? "Cancel" : "Build roads"),
+                        (button) -> Optional.of(roadsSelected() ? "取消" : "修建道路"),
                         this::roadsSelected,
                         () -> !blueprintSelected() && !treeCutterSelected() && hudHasCorrectState(FortressState.BUILD_EDITING)
                 )
@@ -88,7 +88,7 @@ public class ToolsHudLayer extends AbstractHudLayer {
                 125,
                 Items.BRICKS,
                 btn -> setCorrectHudState(FortressState.BUILD_EDITING),
-                () -> isAnyPawnSelected()? "Building Mode" : "Select any pawn to build",
+                () -> isAnyPawnSelected()? "建筑模式" : "选择任何棋子进行建造",
                 () -> hudHasCorrectState(FortressState.BUILD_EDITING)
         );
         this.addElement(
@@ -98,7 +98,7 @@ public class ToolsHudLayer extends AbstractHudLayer {
                         150,
                         Items.COMPASS,
                         btn -> setCorrectHudState(FortressState.BUILD_SELECTION),
-                        "Selection Mode",
+                        "选择模式",
                         () -> hudHasCorrectState(FortressState.BUILD_SELECTION)
                 )
         );

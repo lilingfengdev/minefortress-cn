@@ -11,27 +11,27 @@ public class FortressBookContents implements BookScreen.Contents {
 
     public static final List<String> HELP_BOOK = Arrays.asList(
             """
-            This mod adds strategy-view to the game. You can dig and build using only your mouse pointer and group of Pawns.\s
+            这个模组为游戏添加了策略视图。你可以仅使用鼠标指针和一组棋子进行挖掘和建造。\s
 
-            Keybindings:
-            left-click - start dig selection
-            right-click - start build selection
+            快捷键绑定：
+            左键点击 - 开始选择挖掘
+            右键点击 - 开始选择建造
             """,
             """
-            middle mouse button press - rotate the camera with the mouse
-                    ctrl + R - change the build actionType (Squares, Walls, Ladder)
-            ctrl + E - move current selection Up
-            ctrl + Q - move current selection Down
+            中键按下 - 用鼠标旋转摄像机
+            ctrl + R - 更改建造动作类型（方块、墙、梯子）
+            ctrl + E - 将当前选择向上移动
+            ctrl + Q - 将当前选择向下移动
             """,
             """
-            ctrl + W - rotate camera down
-            ctrl + S - rotate camera up
-            ctrl + A - rotate camera left
-            ctrl + D - rotate camera right
+            ctrl + W - 向下旋转摄像机
+            ctrl + S - 向上旋转摄像机
+            ctrl + A - 向左旋转摄像机
+            ctrl + D - 向右旋转摄像机
             """,
             """
-            Z - cancel latest simpleSelectionTask
-            ctrl + Z - cancel all tasks
+            Z - 取消最近的简单选择任务
+            ctrl + Z - 取消所有任务
             """
     );
 

@@ -131,7 +131,7 @@ public final class BlueprintScreenHandler {
         if(!focusedSlot.isEnoughResources()){
             final var player = MinecraftClient.getInstance().player;
             if(player != null) {
-                player.sendMessage(Text.of("§cYou don't have enough resources to build this blueprint"), true);
+                player.sendMessage(Text.of("§c你没有足够的资源来建造这个蓝图"), true);
             }
             return;
         }

@@ -21,7 +21,7 @@ public class CrafterDailyTask extends AbstractStayNearBlockDailyTask {
 
     @Override
     public void start(Colonist colonist) {
-        colonist.setCurrentTaskDesc("Crafting");
+        colonist.setCurrentTaskDesc("制作");
         super.start(colonist);
     }
 

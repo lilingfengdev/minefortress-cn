@@ -8,13 +8,15 @@ public class MissingBlacksmithScreen extends AbstractMissingProfessionScreen {
         super(missingBuilding);
     }
 
+
     @Override
     protected @NotNull String getMissingObjectName() {
-        return this.irregularReson? "house with a furnace" : "blacksmith";
+        return this.irregularReson ? "带炉子的房子" : "铁匠";
     }
 
     @Override
     protected String getActionText() {
-        return "Go to blueprints menu and build one";
+        return "前往蓝图菜单并建造一个";
     }
+
 }

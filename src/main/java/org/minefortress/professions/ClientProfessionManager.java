@@ -48,8 +48,8 @@ public final class ClientProfessionManager extends ProfessionManager implements 
             FortressClientNetworkHelper.send(FortressChannelNames.FORTRESS_PROFESSION_STATE_CHANGE, packet);
         } else if (profession.isHireMenu() && unlockedForHireMenu == ProfessionResearchState.LOCKED_PARENT) {
             final var parent = profession.getParent();
-            final var message = Text.literal("§cCan't hire " + profession.getTitle() + "§c. " +
-                    "You need to unlock the " + parent.getTitle() + "§c profession first.");
+            final var message = Text.literal("§c无法雇佣 " + profession.getTitle() + "§c. " +
+                    "您需要先解锁 " + parent.getTitle() + "§c 职业。");
             MinecraftClient.getInstance().setScreen(null);
 
             Optional.ofNullable(MinecraftClient.getInstance().player)
@@ -63,7 +63,7 @@ public final class ClientProfessionManager extends ProfessionManager implements 
         final var profession = this.getProfession(professionId);
         final var cantRemove = profession.cantVoluntaryRemoveFromThisProfession();
         if (cantRemove) {
-            final var message = Text.literal("§cCan't remove pawn from profession: " + profession.getTitle());
+            final var message = Text.literal("§c无法从职业中移除角色: " + profession.getTitle());
             MinecraftClient.getInstance().setScreen(null);
             Optional.ofNullable(MinecraftClient.getInstance().player)
                     .ifPresent(it -> it.sendMessage(message, true));
@@ -75,6 +75,7 @@ public final class ClientProfessionManager extends ProfessionManager implements 
                 new ServerboundChangeProfessionStatePacket(professionId, change);
         FortressClientNetworkHelper.send(FortressChannelNames.FORTRESS_PROFESSION_STATE_CHANGE, packet);
     }
+
 
     @Override
     public void updateProfessions(List<IProfessionEssentialInfo> info) {
@@ -108,8 +109,8 @@ public final class ClientProfessionManager extends ProfessionManager implements 
                     .getBlueprintMetadataManager()
                     .getByBlueprintId(blueprintId)
                     .ifPresent(it -> {
-                        final var message = Text.literal("§cCan't hire " + profession.getTitle() + "§c. " +
-                                "You need to build a " + it.getName() + "§c first.");
+                        final var message = Text.literal("§c无法雇佣 " + profession.getTitle() + "§c. " +
+                                "你需要先建造一个 " + it.getName() + "§c。");
                         MinecraftClient.getInstance().setScreen(null);
                         Optional.ofNullable(MinecraftClient.getInstance().player)
                                 .ifPresent(p -> p.sendMessage(message, false));

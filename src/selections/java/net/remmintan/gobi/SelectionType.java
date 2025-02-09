@@ -7,13 +7,13 @@ import java.util.function.Supplier;
 
 public enum SelectionType implements ISelectionType {
 
-    SQUARES(TwoDotsSelection::new, "Squares", "SQ"),
-    WALLS(WallsSelection::new, "Walls", "WA"),
-    WALLS_EVERY_SECOND(WallsEverySecond::new, "Chess Walls", "CW"),
-    LADDER(LadderSelection::new, "Ladder X Direction", "LX"),
-    LADDER_Z_DIRECTION(LadderSelectionZDirection::new, "Ladder Z Direction", "LZ"),
-    TREE(TreeSelection::new, "Trees", "TR"),
-    ROADS(RoadsSelection::new, "Roads", "RO"),;
+    SQUARES(TwoDotsSelection::new, "方形", "SQ"),
+    WALLS(WallsSelection::new, "墙壁", "WA"),
+    WALLS_EVERY_SECOND(WallsEverySecond::new, "棋子墙", "CW"),
+    LADDER(LadderSelection::new, "梯子X方向", "LX"),
+    LADDER_Z_DIRECTION(LadderSelectionZDirection::new, "梯子Z方向", "LZ"),
+    TREE(TreeSelection::new, "树木", "TR"),
+    ROADS(RoadsSelection::new, "道路", "RO"),;
 
     private final Supplier<ISelection> selectionGenerator;
     private final String name;

@@ -65,7 +65,7 @@ public final class ServerAutomationAreaInfo extends AutomationAreaInfo implement
     @Override
     public void sendFinishMessage(ServerPlayerEntity entity) {
         if(getAreaType() == ProfessionsSelectionType.QUARRY) {
-            entity.sendMessage(Text.literal("Mining area is finished!"));
+            entity.sendMessage(Text.literal("采矿区已完成！"));
         }
     }
 

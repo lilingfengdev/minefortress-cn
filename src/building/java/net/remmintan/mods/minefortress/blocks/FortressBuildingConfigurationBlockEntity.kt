@@ -47,7 +47,7 @@ class FortressBuildingConfigurationBlockEntity(pos: BlockPos?, state: BlockState
         return BuildingConfigurationScreenHandler(syncId, playerInventory, propertyDelegate)
     }
 
-    override fun getDisplayName(): Text = Text.of("Building configuration")
+    override fun getDisplayName(): Text = Text.of("建筑设置")
 
     override fun writeNbt(nbt: NbtCompound?) {
         super.writeNbt(nbt)

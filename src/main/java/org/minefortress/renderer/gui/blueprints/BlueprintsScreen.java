@@ -37,9 +37,10 @@ public final class BlueprintsScreen extends Screen {
     private static final Identifier[] TAB_BOTTOM_SELECTED_TEXTURES = new Identifier[]{new Identifier("container/creative_inventory/tab_bottom_selected_1"), new Identifier("container/creative_inventory/tab_bottom_selected_2"), new Identifier("container/creative_inventory/tab_bottom_selected_3"), new Identifier("container/creative_inventory/tab_bottom_selected_4"), new Identifier("container/creative_inventory/tab_bottom_selected_5"), new Identifier("container/creative_inventory/tab_bottom_selected_6"), new Identifier("container/creative_inventory/tab_bottom_selected_7")};
     private static final String BACKGROUND_TEXTURE = "textures/gui/container/creative_inventory/tab_items.png";
     private static final Identifier BLUEPRINT_PREVIEW_BACKGROUND_TEXTURE = new Identifier("textures/gui/recipe_book.png");
-    private static final Text EDIT_BLUEPRINT_TEXT = Text.literal("right click to edit");
-    private static final Text ADD_BLUEPRINT_TEXT = Text.literal("click to add blueprint");
-    private static final Text DELETE_BLUEPRINT_TEXT = Text.literal("right click to delete");
+
+    private static final Text EDIT_BLUEPRINT_TEXT = Text.literal("右键点击以编辑");
+    private static final Text ADD_BLUEPRINT_TEXT = Text.literal("点击以添加蓝图");
+    private static final Text DELETE_BLUEPRINT_TEXT = Text.literal("右键点击以删除");
 
     private final int backgroundWidth = 195;
     private final int backgroundHeight = 136;
@@ -61,7 +62,7 @@ public final class BlueprintsScreen extends Screen {
     private ButtonWidget importExportButton;
 
     public BlueprintsScreen() {
-        super(Text.literal("Blueprints"));
+        super(Text.literal("蓝图"));
     }
 
     @Override
@@ -77,7 +78,7 @@ public final class BlueprintsScreen extends Screen {
                 final var connectedToTheServer = CoreModUtils.getFortressManager().isConnectedToTheServer();
                 if(!connectedToTheServer) {
                     importExportButton = ButtonWidget
-                            .builder(Text.literal("Import / Export"), btn -> client.setScreen(new ImportExportBlueprintsScreen()))
+                            .builder(Text.literal("导入 / 导出"), btn -> client.setScreen(new ImportExportBlueprintsScreen()))
                             .dimensions(this.x + backgroundWidth + previewOffset, this.y - 22, 120, 20)
                             .build();
                     this.addDrawableChild(importExportButton);
@@ -87,6 +88,7 @@ public final class BlueprintsScreen extends Screen {
             }
         }
     }
+
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {

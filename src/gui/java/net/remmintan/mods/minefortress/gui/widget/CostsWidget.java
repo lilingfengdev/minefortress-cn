@@ -55,7 +55,7 @@ public class CostsWidget implements Drawable, Element {
         var endY = y + 25;
 
         if (mouseX >= x && mouseX <= endX && mouseY >= y && mouseY <= endY) {
-            final var tooltip = List.of("Recruitment Costs. Displays the resources", "required to hire a new unit.").stream().map(Text::of).toList();
+            final var tooltip = List.of("招聘成本。显示资源", "需要招聘一个新单位。").stream().map(Text::of).toList();
             drawContext.drawTooltip(getTextRenderer(), tooltip, mouseX, mouseY);
         }
     }

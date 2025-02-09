@@ -36,7 +36,7 @@ internal class InfoTab(private val handler: IInfoTabHandler, private val textRen
         0,
         Items.TNT,
         { _: ButtonWidget -> handler.destroy() },
-        "Destroy this building"
+        "摧毁这座建筑"
     )
 
     private val repairButton: ItemButtonWidget = ItemButtonWidget(
@@ -44,21 +44,21 @@ internal class InfoTab(private val handler: IInfoTabHandler, private val textRen
         0,
         Items.IRON_INGOT,
         { _: ButtonWidget -> handler.repair() },
-        "Repair this building"
+        "修复这座建筑"
     )
 
     private val destroyConfirmationButton = ButtonWidget
-        .builder(Text.of("Destroy")) { handler.destroy() }
+        .builder(Text.of("摧毁")) { handler.destroy() }
         .dimensions(0, 0, 102, 20)
         .build()
 
     private val repairConfirmationButton = ButtonWidget
-        .builder(Text.of("Repair")) { handler.repair() }
+        .builder(Text.of("修复")) { handler.repair() }
         .dimensions(0, 0, 102, 20)
         .build()
 
     private val cancelButton = ButtonWidget
-        .builder(Text.of("Cancel")) { handler.cancel() }
+        .builder(Text.of("取消")) { handler.cancel() }
         .dimensions(0, 0, 102, 20)
         .build()
 
@@ -77,7 +77,7 @@ internal class InfoTab(private val handler: IInfoTabHandler, private val textRen
 
         val villagersCapacity: Int = metadata.capacity
         if (villagersCapacity > 0) {
-            val capacityLabel = Text.literal("Capacity: ").formatted(Formatting.DARK_GRAY)
+            val capacityLabel = Text.literal("容量: ").formatted(Formatting.DARK_GRAY)
             val capacityText = Text.literal("$villagersCapacity").formatted(Formatting.DARK_PURPLE)
 
             texts.add(capacityLabel to capacityText)
@@ -85,11 +85,11 @@ internal class InfoTab(private val handler: IInfoTabHandler, private val textRen
 
         val requirement = metadata.requirement
         requirement.type?.let {
-            val unlocksLabel = Text.literal("Unlocks: ").formatted(Formatting.DARK_GRAY)
+            val unlocksLabel = Text.literal("解锁: ").formatted(Formatting.DARK_GRAY)
             val unlocksText = Text.literal(it.displayName).formatted(Formatting.DARK_PURPLE)
             texts.add(unlocksLabel to unlocksText)
 
-            val levelLabel = Text.literal("Level: ").formatted(Formatting.DARK_GRAY)
+            val levelLabel = Text.literal("等级: ").formatted(Formatting.DARK_GRAY)
             val levelText = Text.literal((requirement.level + 1).toString())
                 .append("/")
                 .append(requirement.totalLevels.toString())
@@ -98,18 +98,18 @@ internal class InfoTab(private val handler: IInfoTabHandler, private val textRen
             texts.add(levelLabel to levelText)
         }
 
-        // rendering begins here
+        // 渲染开始
         val matrices = context.matrices
         matrices.push()
         matrices.translate(7f, 17f, 0f)
         var yDelta = 0
 
-        // Name
+        // 名称
         context.drawText(this.textRenderer, metadata.name, 0, yDelta, HEADINGS_COLOR, false)
         yDelta += 13
 
-        // Health
-        val healthLabel = Text.of("Health: ")
+        // 生命值
+        val healthLabel = Text.of("生命值: ")
         val healthLabelWidth = this.textRenderer.getWidth(healthLabel)
 
         context.drawText(this.textRenderer, healthLabel, 0, yDelta, PRIMARY_COLOR, false)
@@ -122,7 +122,7 @@ internal class InfoTab(private val handler: IInfoTabHandler, private val textRen
 
         yDelta += 13
 
-        // Metadata texts
+        // 元数据文本
         texts.forEach {
             val label = it.first
             val text = it.second
@@ -134,8 +134,8 @@ internal class InfoTab(private val handler: IInfoTabHandler, private val textRen
 
         yDelta = 75
 
-        // Manage buttons
-        val manageLabel = Text.of("Manage: ")
+        // 管理按钮
+        val manageLabel = Text.of("管理: ")
         val manageLabelWidth = this.textRenderer.getWidth(manageLabel)
 
         context.drawText(this.textRenderer, manageLabel, 0, yDelta, HEADINGS_COLOR, false)
@@ -149,12 +149,12 @@ internal class InfoTab(private val handler: IInfoTabHandler, private val textRen
 
         yDelta += 17
 
-        // Upgrades
-        context.drawText(this.textRenderer, Text.of("Building Upgrades:"), 0, yDelta, HEADINGS_COLOR, false)
+        // 升级
+        context.drawText(this.textRenderer, Text.of("建筑升级:"), 0, yDelta, HEADINGS_COLOR, false)
         yDelta += 25
 
         if (handler.upgrades.isEmpty() || handler.getBlueprintMetadata().requirement.isMaxLevel()) {
-            val infoLabel = "Maximum building level reached"
+            val infoLabel = "已达到最大建筑等级"
             context.drawText(
                 this.textRenderer,
                 infoLabel,
@@ -197,15 +197,13 @@ internal class InfoTab(private val handler: IInfoTabHandler, private val textRen
 
         matrixStack.pop()
         RenderSystem.applyModelViewMatrix()
-
-
     }
 
     fun renderDestroyConfirmation(context: DrawContext, mouseX: Int, mouseY: Int) {
         context.matrices.loadIdentity()
         context.drawCenteredTextWithShadow(
             this.textRenderer,
-            Text.of("Destroy this building?"),
+            Text.of("销毁这座建筑吗？"),
             x + backgroundWidth / 2,
             y + backgroundHeight / 2 - 40,
             WHITE_COLOR
@@ -222,14 +220,14 @@ internal class InfoTab(private val handler: IInfoTabHandler, private val textRen
         context.matrices.loadIdentity()
         context.drawCenteredTextWithShadow(
             this.textRenderer,
-            Text.of("Repair building?"),
+            Text.of("修复建筑吗？"),
             x + backgroundWidth / 2,
             y + 25,
             WHITE_COLOR
         )
         context.drawCenteredTextWithShadow(
             this.textRenderer,
-            Text.of("Required items:"),
+            Text.of("所需物品："),
             x + backgroundWidth / 2,
             y + 40,
             WHITE_COLOR
@@ -258,7 +256,7 @@ internal class InfoTab(private val handler: IInfoTabHandler, private val textRen
         cancelButton.render(context, mouseX, mouseY, 0f)
 
         if (!handler.hasSelectedPawns()) {
-            val warnLabel = Text.of("Select pawns who will repair the building!")
+            val warnLabel = Text.of("请选择将修复建筑的角色！")
             context.drawText(
                 this.textRenderer,
                 warnLabel,

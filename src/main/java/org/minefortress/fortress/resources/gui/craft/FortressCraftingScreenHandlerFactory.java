@@ -12,7 +12,7 @@ import net.remmintan.mods.minefortress.core.interfaces.server.IFortressServer;
 public class FortressCraftingScreenHandlerFactory implements NamedScreenHandlerFactory {
     @Override
     public Text getDisplayName() {
-        return Text.literal("Crafting");
+        return Text.literal("制作");
     }
 
     @Nullable

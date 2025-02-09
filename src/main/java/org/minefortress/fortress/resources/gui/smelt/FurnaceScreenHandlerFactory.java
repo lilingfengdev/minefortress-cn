@@ -27,7 +27,7 @@ public class FurnaceScreenHandlerFactory implements NamedScreenHandlerFactory {
 
     @Override
     public Text getDisplayName() {
-        return Text.literal("Furnace Screen Factory");
+        return Text.literal("熔炉屏幕工厂");
     }
 
     @Nullable

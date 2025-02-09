@@ -32,7 +32,7 @@ public class FisherDailyTask implements ProfessionDailyTask {
 
     @Override
     public void start(Colonist colonist) {
-        colonist.setCurrentTaskDesc("Catch fish");
+        colonist.setCurrentTaskDesc("钓鱼");
         this.goal = null;
         this.goalFuture = MineFortressMod.getExecutor().submit(() -> this.setGoalAsync(colonist));
     }

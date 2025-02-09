@@ -110,11 +110,11 @@ public abstract class HungryEntity extends BaritonableEntity implements IHungerA
             final HungerManager hungerManager = getHungerManager();
             final var pawnName = npe.getName().getString();
             if(hungerManager.prevFoodLevel > 0 && hungerManager.getFoodLevel() <= 0) {
-                fae.sendMessageToMasterPlayer(pawnName + " is starving! Do something!");
+                fae.sendMessageToMasterPlayer(pawnName + " 正在饥饿！快点做点什么！");
             } else if(hungerManager.prevFoodLevel >= 5 && hungerManager.foodLevel < 5) {
-                fae.sendMessageToMasterPlayer(pawnName + " is very hungry! Bring some food to the village!");
+                fae.sendMessageToMasterPlayer(pawnName + " 非常饿！带些食物回村子！");
             } else if(hungerManager.prevFoodLevel >= 10 && hungerManager.foodLevel < 10) {
-                fae.sendMessageToMasterPlayer(pawnName + " is hungry. It's time to eat something!");
+                fae.sendMessageToMasterPlayer(pawnName + " 有点饿了。该吃点东西了！");
             }
         }
     }

@@ -32,7 +32,7 @@ public class ProfessionAmountWidget extends MinefortressWidget implements Drawab
         drawContext.drawText(getTextRenderer(), "%d/%d".formatted(currentAmount, maxAmount), x + 15, y + 9, 0xFFFFFF, false);
 
         if (isHovered(mouseX, mouseY)) {
-            drawContext.drawTooltip(getTextRenderer(), Text.of("Amount of units"), mouseX, mouseY);
+            drawContext.drawTooltip(getTextRenderer(), Text.of("单位数量"), mouseX, mouseY);
         }
     }
 

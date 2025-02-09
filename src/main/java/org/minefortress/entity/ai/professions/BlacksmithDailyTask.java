@@ -19,7 +19,7 @@ public class BlacksmithDailyTask extends AbstractStayNearBlockDailyTask{
 
     @Override
     public void start(Colonist colonist) {
-        colonist.setCurrentTaskDesc("Smelting");
+        colonist.setCurrentTaskDesc("冶炼");
         super.start(colonist);
     }
 

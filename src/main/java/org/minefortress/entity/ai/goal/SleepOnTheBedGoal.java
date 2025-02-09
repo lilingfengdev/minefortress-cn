@@ -30,7 +30,7 @@ public class SleepOnTheBedGoal extends AbstractFortressGoal {
 
     @Override
     public void start() {
-        colonist.setCurrentTaskDesc("Going to sleep");
+        colonist.setCurrentTaskDesc("去睡觉");
         moveToBed();
     }
 

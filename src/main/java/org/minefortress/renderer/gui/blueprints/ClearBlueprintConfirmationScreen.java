@@ -12,8 +12,8 @@ import net.remmintan.mods.minefortress.networking.helpers.FortressClientNetworkH
 @Environment(value= EnvType.CLIENT)
 public class ClearBlueprintConfirmationScreen extends Screen {
 
-    private final static Text TITLE = Text.of("Confirm Clearing Blueprint");
-    private final static Text CONFIRMATION_TEXT = Text.of("Do you really want to clear the blueprint?");
+    private final static Text TITLE = Text.of("确认清除蓝图");
+    private final static Text CONFIRMATION_TEXT = Text.of("您真的想要清除蓝图吗？");
 
     private final Screen parent;
 
@@ -27,7 +27,7 @@ public class ClearBlueprintConfirmationScreen extends Screen {
         super.init();
 
         final var yesBtn = ButtonWidget
-                .builder(Text.literal("Yes"), button -> {
+                .builder(Text.literal("是"), button -> {
                     sendClear();
                     if (super.client != null) {
                         super.client.setScreen(null);
@@ -38,7 +38,7 @@ public class ClearBlueprintConfirmationScreen extends Screen {
         this.addDrawableChild(yesBtn);
 
         final var noBtn = ButtonWidget
-                .builder(Text.literal("No"), button -> close())
+                .builder(Text.literal("否"), button -> close())
                 .dimensions(this.width / 2 - 102, this.height / 4 + 48 - 16, 204, 20)
                 .build();
         this.addDrawableChild(noBtn);

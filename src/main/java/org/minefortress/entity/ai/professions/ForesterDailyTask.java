@@ -27,7 +27,7 @@ public class ForesterDailyTask implements ProfessionDailyTask{
 
     @Override
     public void start(Colonist colonist) {
-        colonist.setCurrentTaskDesc("Looking for food");
+        colonist.setCurrentTaskDesc("寻找食物");
         this.setGoal(colonist);
         colonist.getMovementHelper().goTo(this.goal, Colonist.FAST_MOVEMENT_SPEED);
     }

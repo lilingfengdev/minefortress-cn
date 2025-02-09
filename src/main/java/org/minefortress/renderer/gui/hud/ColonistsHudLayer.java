@@ -33,25 +33,25 @@ public class ColonistsHudLayer extends AbstractHudLayer {
                         20,
                         20,
                         btn -> client.setScreen(new ColonistsScreen()),
-                        "Manage pawns",
+                        "管理居民",
                         this::getColonistsCountText
                 )
         );
 
         this.addElement(
-            new ItemButtonWidget(
-                    35, 0,
-                Items.PLAYER_HEAD,
-                    btn -> client.setScreen(new ProfessionsScreen(CoreModUtils.getManagersProvider())),
-                "Manage professions"
-            )
+                new ItemButtonWidget(
+                        35, 0,
+                        Items.PLAYER_HEAD,
+                        btn -> client.setScreen(new ProfessionsScreen(CoreModUtils.getManagersProvider())),
+                        "管理职业"
+                )
         );
         this.addElement(
                 new ItemButtonWidget(
-                        35+20, 0,
+                        35 + 20, 0,
                         Items.CHEST,
                         btn -> client.setScreen(new CreativeInventoryScreen(client.player, FeatureSet.empty(), false)),
-                        "Inventory"
+                        "库存"
                 )
         );
         craftingButton = new ItemButtonWidget(
@@ -63,7 +63,7 @@ public class ColonistsHudLayer extends AbstractHudLayer {
                     else
                         this.client.setScreen(new MissingCraftsmanScreen());
                 },
-                "Crafting"
+                "制作"
         );
         furnaceButton = new ItemButtonWidget(
                 35 + 60, 0,
@@ -78,8 +78,9 @@ public class ColonistsHudLayer extends AbstractHudLayer {
                         this.client.setScreen(new MissingBlacksmithScreen(false));
                     }
                 },
-                "Furnace"
+                "熔炉"
         );
+
         this.addElement(craftingButton);
         this.addElement(furnaceButton);
 
