@@ -1,19 +1,19 @@
 [
   {
     "key": "colonist",
-    "title": "Colonist",
+    "title": "殖民者",
     "icon": "minecraft:player_head",
-    "description": "Can do any type of work, but is not very good at it.\nCan use only wooden tools.\nCan't fall tall trees\nCan't provide any food.",
+    "description": "可以进行任何类型的工作，但不太擅长。\n只能使用木制工具。\n无法砍伐高大的树木。\n无法提供任何食物。",
     "unlockMessage": "",
     "unlockMoreMessage": ""
   },
   {
     "key": "miner1",
-    "title": "Miner - LVL1",
+    "title": "矿工 - LVL1",
     "icon": "minecraft:stone_pickaxe",
-    "description": "Can work in mine and quarry.\nCan use stone shovel and pickaxe.",
-    "unlockMessage": "Build 'Wooden Miner's house' to unlock",
-    "unlockMoreMessage": "Build more 'Wooden Miner's houses' to unlock more",
+    "description": "可以在矿井和采石场工作。\n可以使用石制铲子和镐子。",
+    "unlockMessage": "建造'木制矿工之家'以解锁",
+    "unlockMoreMessage": "建造更多'木制矿工之家'以解锁更多",
     "requirements": {
       "building": {
         "type": "MINER",
@@ -34,11 +34,11 @@
   },
   {
     "key": "miner2",
-    "title": "Miner - LVL2",
+    "title": "矿工 - LVL2",
     "icon": "minecraft:iron_pickaxe",
-    "description": "Can work in mine and quarry.\nCan use iron shovel and pickaxe.",
-    "unlockMessage": "Build 'Stone Miner's house' to unlock",
-    "unlockMoreMessage": "Build more 'Stone Miner's houses' to unlock more",
+    "description": "可以在矿井和采石场工作。\n可以使用铁制铲子和镐子。",
+    "unlockMessage": "建造'石制矿工之家'以解锁",
+    "unlockMoreMessage": "建造更多'石制矿工之家'以解锁更多",
     "requirements": {
       "building": {
         "type": "MINER",
@@ -59,11 +59,11 @@
   },
   {
     "key": "miner3",
-    "title": "Miner - LVL3",
+    "title": "矿工 - LVL3",
     "icon": "minecraft:diamond_pickaxe",
-    "description": "Can work in mine and quarry.\nCan use diamond shovel and pickaxe.",
-    "unlockMessage": "Build 'Miners' guild house' to unlock",
-    "unlockMoreMessage": "Build more 'Miners' guild houses' to unlock more",
+    "description": "可以在矿井和采石场工作。\n可以使用钻石铲子和镐子。",
+    "unlockMessage": "建造'矿工公会之家'以解锁",
+    "unlockMoreMessage": "建造更多'矿工公会之家'以解锁更多",
     "requirements": {
       "building": {
         "type": "MINER",
@@ -84,74 +84,74 @@
   },
   {
     "key": "lumberjack1",
-    "title": "Lumberjack - LVL1",
+    "title": "伐木工 - LVL1",
     "icon": "minecraft:stone_axe",
-    "description": "Can fall tall trees.\nCan use stone axe.\nCollects saplings.",
-    "unlockMessage": "Build 'Wooden Lumberjack's house' to unlock",
-    "unlockMoreMessage": "Build more 'Wooden Lumberjack's houses' to unlock more",
+    "description": "可以砍伐高大的树木。\n可以使用石制斧头。\n收集树苗。",
+    "unlockMessage": "建造'木制伐木工之家'以解锁",
+    "unlockMoreMessage": "建造更多'木制伐木工之家'以解锁更多",
     "requirements": {
       "building": {
         "type": "LUMBERJACK",
         "level": 0
       },
       "items": [
-          {
+        {
           "id": "minecraft:stone_axe",
           "count": 1
-          }
+        }
       ]
     },
     "hireMenu": true
   },
   {
     "key": "lumberjack2",
-    "title": "Lumberjack - LVL2",
+    "title": "伐木工 - LVL2",
     "icon": "minecraft:iron_axe",
-    "description": "Can fall tall trees.\nCan use iron axe.\nCan plant saplings.",
-    "unlockMessage": "Build 'Stone Lumberjack's house' to unlock",
-    "unlockMoreMessage": "Build more 'Stone Lumberjack's houses' to unlock more",
+    "description": "可以砍伐高大的树木。\n可以使用铁制斧头。\n可以种植树苗。",
+    "unlockMessage": "建造'石制伐木工之家'以解锁",
+    "unlockMoreMessage": "建造更多'石制伐木工之家'以解锁更多",
     "requirements": {
       "building": {
         "type": "LUMBERJACK",
         "level": 1
       },
       "items": [
-          {
+        {
           "id": "minecraft:iron_axe",
           "count": 1
-          }
+        }
       ]
     },
     "hireMenu": true
   },
   {
     "key": "lumberjack3",
-    "title": "Lumberjack - LVL3",
+    "title": "伐木工 - LVL3",
     "icon": "minecraft:diamond_axe",
-    "description": "Can fall tall trees.\nCan use diamond axe.\nCan plant saplings.",
-    "unlockMessage": "Build 'Lumberjack's guild house' to unlock",
-    "unlockMoreMessage": "Build more 'Lumberjack's guild houses' to unlock more",
+    "description": "可以砍伐高大的树木。\n可以使用钻石斧。\n可以种植树苗。",
+    "unlockMessage": "建造‘伐木工公会之家’以解锁",
+    "unlockMoreMessage": "建造更多‘伐木工公会之家’以解锁更多",
     "requirements": {
       "building": {
         "type": "LUMBERJACK",
         "level": 2
       },
       "items": [
-          {
+        {
           "id": "minecraft:diamond_axe",
           "count": 1
-          }
+        }
       ]
     },
     "hireMenu": true
   },
   {
     "key": "forester",
-    "title": "Forester",
+    "title": "林务员",
     "icon": "minecraft:apple",
-    "description": "Collects seeds, apples and some other basic food\nWhile working every tick has small chance of getting food.\nCollects saplings and sticks.",
-    "unlockMessage": "Brings food. Build 'Forester's house' to unlock",
-    "unlockMoreMessage": "Build more 'Forester's houses' to unlock more",
+    "description": "收集种子、苹果和其他一些基本食物\n工作时每个时刻都有小几率获得食物。\n收集树苗和树枝。",
+    "unlockMessage": "提供食物。建造‘林务员之家’以解锁",
+    "unlockMoreMessage": "建造更多‘林务员之家’以解锁更多",
     "requirements": {
       "building": {
         "type": "FORESTER",
@@ -161,11 +161,11 @@
   },
   {
     "key": "fisherman",
-    "title": "Fisherman",
+    "title": "渔夫",
     "icon": "minecraft:fishing_rod",
-    "description": "Catches fish in ponds\nCooks fish",
-    "unlockMessage": "Build Fisherman's house to unlock",
-    "unlockMoreMessage": "Build more Fisherman's houses to unlock more",
+    "description": "在池塘中捕捉鱼\n烹饪鱼",
+    "unlockMessage": "建造渔夫之家以解锁",
+    "unlockMoreMessage": "建造更多渔夫之家以解锁更多",
     "requirements": {
       "building": {
         "type": "FISHERMAN",
@@ -175,11 +175,11 @@
   },
   {
     "key": "farmer",
-    "title": "Farmer",
+    "title": "农民",
     "icon": "minecraft:wheat",
-    "description": "Plants any kind of seeds including wheat, watermelon and pumpkin",
-    "unlockMessage": "Build any farm to unlock",
-    "unlockMoreMessage": "Build more farms to hire more",
+    "description": "种植任何种类的种子，包括小麦、西瓜和南瓜",
+    "unlockMessage": "建造任何农场以解锁",
+    "unlockMoreMessage": "建造更多农场以雇佣更多",
     "requirements": {
       "building": {
         "type": "FARMER",
@@ -189,11 +189,11 @@
   },
   {
     "key": "crafter",
-    "title": "Craftsman",
+    "title": "工匠",
     "icon": "minecraft:crafting_table",
-    "description": "Can craft any item that doesn't need smelting.\nCan't use redstone or nether blocks/items",
-    "unlockMessage": "Build crafting table to unlock",
-    "unlockMoreMessage": "Build more crafting tables to unlock more",
+    "description": "可以制作任何不需要冶炼的物品。\n不能使用红石或下界方块/物品",
+    "unlockMessage": "建造工作台以解锁",
+    "unlockMoreMessage": "建造更多工作台以解锁更多",
     "requirements": {
       "building": {
         "type": "CRAFTSMAN",
@@ -203,11 +203,11 @@
   },
   {
     "key": "blacksmith",
-    "title": "Blacksmith",
+    "title": "铁匠",
     "icon": "minecraft:iron_ingot",
-    "description": "Can smelt ores and cook food in furnace",
-    "unlockMessage": "Build any blueprint with a Furnace to unlock",
-    "unlockMoreMessage": "Build more blueprints with Furnaces to unlock more",
+    "description": "可以在熔炉中冶炼矿石和烹饪食物",
+    "unlockMessage": "建造任何带有熔炉的蓝图以解锁",
+    "unlockMoreMessage": "建造更多带有熔炉的蓝图以解锁更多",
     "requirements": {
       "building": {
         "type": "BLACKSMITH",
@@ -217,11 +217,11 @@
   },
   {
     "key": "warrior1",
-    "title": "Warrior - LVL1",
+    "title": "战士 - LVL1",
     "icon": "minecraft:stone_sword",
-    "description": "Defends the village, can use stone sword and leather armor [1 stone sword for each]",
-    "unlockMessage": "Build Small Warrior's house to unlock",
-    "unlockMoreMessage": "You need more stone swords or build another Small Warrior's house to hire more!",
+    "description": "保护村庄，可以使用石剑和皮革盔甲 [每个需要1把石剑]",
+    "unlockMessage": "建造小型战士之家以解锁",
+    "unlockMoreMessage": "你需要更多的石剑或建造另一个小型战士之家以雇佣更多！",
     "requirements": {
       "building": {
         "type": "WARRIOR",
@@ -238,11 +238,11 @@
   },
   {
     "key": "warrior2",
-    "title": "Warrior - LVL2",
+    "title": "战士 - LVL2",
     "icon": "minecraft:iron_sword",
-    "description": "Defends the village, can use iron sword and iron armor [1 iron sword for each, 1 iron armor set for each]",
-    "unlockMessage": "Build Medium Warrior's house to unlock",
-    "unlockMoreMessage": "You need more iron swords/armors or build another Medium Warrior's house to hire more!",
+    "description": "保护村庄，可以使用铁剑和铁盔甲 [每个需要1把铁剑，1套铁盔甲]",
+    "unlockMessage": "建造中型战士之家以解锁",
+    "unlockMoreMessage": "你需要更多的铁剑/盔甲或建造另一个中型战士之家以雇佣更多！",
     "requirements": {
       "building": {
         "type": "WARRIOR",
@@ -275,11 +275,11 @@
   },
   {
     "key": "archer1",
-    "title": "Archer",
+    "title": "弓箭手",
     "icon": "minecraft:bow",
-    "description": "Defends the village, ranged fighter [1 bow, 32 arrow for each]",
-    "unlockMessage": "Build Shooting gallery to unlock",
-    "unlockMoreMessage": "You need more bows/arrows to hire more!",
+    "description": "保护村庄，远程战斗 [每个需要1把弓，32支箭]",
+    "unlockMessage": "建造射击场以解锁",
+    "unlockMoreMessage": "你需要更多的弓/箭以雇佣更多！",
     "requirements": {
       "building": {
         "type": "ARCHER",

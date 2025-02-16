@@ -203,7 +203,7 @@ public final class ServerFortressManager implements IFortressManager, IServerMan
                     if(colonistsCount < bedsCount || colonistsCount < DEFAULT_COLONIST_COUNT) {
                         if(player != null) {
                             spawnPawnNearCampfire(player.getUuid())
-                                    .ifPresent(it -> player.sendMessage(Text.literal(it.getName().getString() + " appeared in the village."), false));
+                                    .ifPresent(it -> player.sendMessage(Text.literal(it.getName().getString() + "出现在村庄里."), false));
                         }
                     }
                 }
